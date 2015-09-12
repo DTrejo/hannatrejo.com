@@ -1,0 +1,62 @@
+extends ./__layout.jade
+
+prepend jadejs
+  - var bodyclass = "homepage"
+
+append styles
+  <link href='http://fonts.googleapis.com/css?family=Homemade+Apple&text=HannaTrejo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+  style.
+    body {
+      font-family: 'PT Sans', sans-serif;
+    }
+    .headshot {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 160px
+    }
+    .signature {
+      font-family: 'Homemade Apple', cursive;
+    }
+  link(rel="stylesheet" href="/stylesheets/grid.css")
+  script(src="/js/modernizr.custom.js")
+
+append bodyscripts
+  //- via https://tympanus.net/Development/GridLoadingEffects/index2.html
+  script(src="/js/masonry.pkgd.min.js")
+  script(src="/js/imagesloaded.js")
+  script(src="/js/classie.js")
+  script(src="/js/AnimOnScroll.js")
+  script.
+      new AnimOnScroll(document.getElementById('grid'), {
+        minDuration: 0.4
+      , maxDuration: 0.7
+      , viewportFactor: 0.2
+      })
+
+block main
+  article
+    h2 Let's work together!
+    p.
+      Sincerely,<br>
+      <span class="signature">Hanna Trejo</span>
+
+
+    //- pre.
+    //-   #{JSON.stringify(public._data.images, null, 2)}
+
+    ul.grid.effect-2#grid
+      each image in public._data.images
+        li
+          - var src = "/images/work/" + image.filename
+          a(href=src)
+            img(src=src)
+
+    //- p.
+      You can email me at
+      <code>hannatrejot&nbsp;at&nbsp;gmail.com</code>
+
+
+    //- img.headshot(src="/images/hanna-trejo-photography.jpeg"
+      alt="Photo of Hanna Trejo" height="200")

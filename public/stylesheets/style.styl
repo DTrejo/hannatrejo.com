@@ -1,0 +1,188 @@
+@require "./normalize"
+
+//
+// spacing & flow
+//
+margin = 1.5rem
+*
+  margin-top 0
+* + *
+  margin-top margin
+
+html
+  // 1 rem is 20px
+  font-size 125%
+  line-height 1.5
+
+h1, h2, h3, h4, h5, h6, li, p, span
+  // MASSIVELY slows down page load when on body element :(
+  text-rendering optimizeLegibility
+
+h1, h2, h3, h4, h5, h6, ul, ol, p, .logos, hr, blockquote
+  margin-left auto
+  margin-right auto
+
+  // gives 10px left and right space on iphone 3G
+  max-width 300px
+
+  @media screen and (min-width: 450px)
+    max-width 430px
+
+  @media screen and (min-width: 543px)
+    max-width 523px
+
+  // wide enough for my name on one line, with 10px breathing
+  @media screen and (min-width: 600px)
+    max-width 590px
+
+  // big enough for 33em, with 10px breathing
+  @media screen and (min-width: 680px)
+    max-width 33rem
+
+header h2 + *
+  margin-top 0
+
+// make case studies spaced out
+li > ul, li + li
+  margin-top initial
+
+header, footer
+  width 100%
+  padding-top 2*margin
+  padding-bottom 2*margin
+  font-size margin
+
+nav
+  line-height 2 // damian's advice
+
+nav > ul
+  list-style none
+  padding-left 0
+
+main
+  margin-top 0
+  padding-top 3*margin
+
+p
+  margin-bottom 0
+
+.logos
+  text-align center
+  > *
+    margin-left margin
+
+footer
+  margin-top 3*margin
+  padding-top 3*margin
+
+//
+// color & style
+//
+// #051021 #901a13 #cc5232 #73cdf3 #fdf3ae
+$background-color = #050f20
+$color = #adc1f0
+$a-visited = #335F8E
+$a-hover = #4989CE
+$header-h1-a-color = #8f1a13
+$header-footer-background-color = #260202
+$header-footer-color = #8f1a13
+$header-footer-a-color = #4578c7
+$header-footer-a-hover = tint(#4578c7, 20%)
+$header-border-bottom = tint(#050f20, 5%)
+$footer-border-top = tint(#260202, 4%) //  TODO fix
+
+body
+  font-family "AdobeGaramondPremierPro", "Hoefler Text", Palatino, "Palatino Linotype", serif
+  color $color
+  background $background-color url('../images/bg.jpg')
+
+a,
+a:link,
+a:visited
+  color $a-visited
+  -webkit-transition all 0.12s ease-out
+  -moz-transition all 0.12s ease-out
+
+a:active,
+a:hover
+  color $a-hover
+
+h1, h2, h3
+  font-weight normal
+
+h3
+  font-style italic
+
+header, footer
+  background-color $header-footer-background-color
+  color $header-footer-color
+
+header a:link,
+header a:visited,
+footer a,
+footer a:link,
+footer a:visited
+  text-decoration none
+  color $header-footer-a-color
+
+header a:active, header a:hover
+footer a:active, footer a:hover
+  color $header-footer-a-hover
+
+header
+  text-shadow #111 0px 1px 1px
+  width 100%
+  box-shadow inset 0 -20px 15px -20px #000
+  border-bottom 2px solid $header-border-bottom
+
+header h1 a:link,
+header h1 a:visited
+  color $header-h1-a-color
+  font-size 2.7rem // looks good at all screen sizes
+  -moz-transition none
+  -webkit-transition none
+
+blockquote
+  font-style italic
+  border-left 3px solid rgba(0,0,0,.2)
+  padding-left 1rem
+
+header h1, header h2
+  text-shadow #111 0px 2px 2px
+
+footer
+  text-shadow #000 0px 1px 1px
+  border-top 2px solid $footer-border-top
+
+/* & separators */
+// section + section:before
+//   content "&"
+//   font-size 3rem
+//   // line-height 3rem // center it
+//   font-family Baskerville,"Goudy Old Style","Palatino","Palatino Linotype","Book Antiqua",serif
+//   font-style italic
+//   font-weight normal
+//   display block
+//   text-align center
+//   color #999
+//   // careful if you change the background!
+//   color rgba(0,0,0,0.25)
+//   // the owl selector rules dont apply to this one, so we set these ourself
+//   margin-top 2rem
+//   margin-bottom 2rem
+
+// span.amp
+//   font-family Baskerville,"Goudy Old Style","Palatino","Palatino Linotype","Book Antiqua",serif
+//   font-style italic
+
+
+.greyscale
+  filter url(/images/filters.svg#grayscale) /* Firefox 3.5+ */
+  filter gray /* IE6-9 */
+  -webkit-filter grayscale(1) /* Google Chrome, Safari 6+ & Opera 15+ */
+
+.smallcaps
+  font-variant small-caps
+
+.drip-tab-container
+  margin-top 0

@@ -1,0 +1,22 @@
+{
+  "name": "hannatrejo",
+  "version": "0.0.1",
+  "author": "David Trejo",
+  "dependencies": {
+    "buildbranch": "0.0.3",
+    "harp": "^0.17.0",
+    "image-size": "0.3.5",
+    "shelljs": "0.5.3"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": "0.12.x"
+  },
+  "scripts": {
+    "app": "PORT=9000; open http://localhost:$PORT & harp server public -p $PORT",
+    "compile": "harp compile ./public -o ../www",
+    "buildbranch": "buildbranch gh-pages www",
+    "deploy": "npm run compile && npm run buildbranch"
+  },
+  "private": true
+}
