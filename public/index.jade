@@ -40,21 +40,16 @@ block main
       Sincerely,<br>
       <span class="signature">Hanna Trejo</span>
 
-
-    //- pre.
-    //-   #{JSON.stringify(public._data.images, null, 2)}
-
     ul.grid.effect-2#grid
       each image in public._data.images
         li
           - var src = "/images/work/" + image.filename
           a(href=src)
             img(src=src)
-
-    //- p.
-      You can email me at
-      <code>hannatrejot&nbsp;at&nbsp;gmail.com</code>
-
+            //- img.lazy(data-original=src)
+            //- <noscript>
+            //- img(src=src)
+            //- </noscript>
 
     //- img.headshot(src="/images/hanna-trejo-photography.jpeg"
       alt="Photo of Hanna Trejo" height="200")
