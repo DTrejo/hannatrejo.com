@@ -34,7 +34,8 @@ block main
       Sincerely,<br>
       <span class="signature">Hanna Trejo</span>
 
-    ul.grid.effect-2#grid
+    //- prevent FOUC
+    ul.grid.effect-2#grid(style="min-height:512px")
       each image in public._data.images
         li
           - var src = "/images/work/" + image.filename
