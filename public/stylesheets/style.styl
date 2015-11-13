@@ -79,17 +79,31 @@ footer
 // color & style
 //
 // #051021 #901a13 #cc5232 #73cdf3 #fdf3ae
-$background-color = #050f20
-$color = #adc1f0
+// $background-color = #050f20
+// $color = #adc1f0
+// $a-visited = #335F8E
+// $a-hover = #4989CE
+// $header-h1-a-color = #8f1a13
+// $header-footer-background-color = #260202
+// $header-footer-color = #8f1a13
+// $header-footer-a-color = #4578c7
+// $header-footer-a-hover = tint(#4578c7, 20%)
+// $header-border-bottom = tint(#050f20, 4%)
+// $footer-border-top = tint(#260202, 4%) //  TODO fix
+
+$background-color = #222
+$color = #fcfcfc
 $a-visited = #335F8E
 $a-hover = #4989CE
-$header-h1-a-color = #8f1a13
-$header-footer-background-color = #260202
-$header-footer-color = #8f1a13
-$header-footer-a-color = #4578c7
-$header-footer-a-hover = tint(#4578c7, 20%)
-$header-border-bottom = tint(#050f20, 4%)
-$footer-border-top = tint(#260202, 4%) //  TODO fix
+$header-h1-a-color = #222
+$header-footer-background-color = #fcfcfc
+$header-footer-color = #222
+// $header-footer-a-color = #4578c7
+// $header-footer-a-hover = tint(#4578c7, 20%)
+$header-border-bottom = tint(#222, 4%)
+$footer-border-top = tint(#222, 4%) //  TODO fix
+
+
 
 body
   font-family 'Source Sans Pro', sans-serif !important
@@ -131,7 +145,7 @@ footer a:active, footer a:hover
   color $header-footer-a-hover
 
 header
-  text-shadow #111 0px 1px 1px
+  // text-shadow #111 0px 1px 1px
   width 100%
   box-shadow inset 0 -20px 15px -20px #000
   border-bottom 2px solid $header-border-bottom
@@ -149,10 +163,10 @@ blockquote
   padding-left 1rem
 
 header h1, header h2
-  text-shadow #111 0px 2px 2px
+  // text-shadow #111 0px 2px 2px
 
 footer
-  text-shadow #000 0px 1px 1px
+  // text-shadow #000 0px 1px 1px
   border-top 2px solid $footer-border-top
 
 /* & separators */
